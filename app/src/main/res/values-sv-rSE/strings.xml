@@ -646,7 +646,6 @@ Eversense-appen.</string>
     <string name="enablesmbwithtemptarget">Använd SMB vid temp målvärde</string>
     <string name="enablesmbwithtemptarget_summary">Använd SMB när temp mål är satt, t ex Äta snart eller Träning</string>
     <string name="enablesmbwithhightemptarget">Använd SMB vid högt målvärde</string>
-    <string name="enablesmbwithhightemptarget_summary">Använd SMB även när ett högt temp målvärde är satt (över 5,5 mmol)</string>
     <string name="overview_insulin_label">Insulin</string>
     <string name="overview_carbs_label">Kolhydrater</string>
     <string name="overview_buttons_selection">Knappar</string>
@@ -680,7 +679,6 @@ Eversense-appen.</string>
     <string name="do_not_bolus_record_only">Ge ingen bolus, logga bara</string>
     <string name="category">Kategori</string>
     <string name="subcategory">Underkategori</string>
-    <string name="bolusrecordedonly">Bolusen sparas bara i loggboken</string>
     <string name="ns_autobackfill_summary">Hämta saknad BG-data från Nightscout</string>
     <string name="loop_smbsetbypump_label">SMB satt i pump</string>
     <string name="overview_show_activity">Insulinaktivitet (5m)</string>
@@ -797,7 +795,6 @@ Eversense-appen.</string>
     <string name="askforpermission">Be om behörighet</string>
     <string name="needsystemwindowpermission">Applikationen behöver förhöjd behörighet för aviseringar</string>
     <string name="needlocationpermission">Appen behöver platsåtkomst för bluetooth- och WiFi-identifiering</string>
-    <string name="needstoragepermission">Appen behöver behörighet att använda Lagring för att kunna spara loggfiler</string>
     <string name="request">Begäran</string>
     <string name="insulinsourcesetup">Konfigurera insticksprogram för insulin</string>
     <string name="exit">Avsluta</string>
@@ -1224,7 +1221,6 @@ Eversense-appen.</string>
     <string name="clone_label">Kopiera</string>
     <string name="saveorresetchangesfirst">Spara eller återställa aktuella ändringar först</string>
     <string name="deletecurrentprofile">Ta bort aktuell profil?</string>
-    <string name="copytolocalprofile">Vill du skapa en ny lokal profil från detta profilbyte?</string>
     <string name="profilenamecontainsdot">Profilnamnet innehåller punkter.\nDetta stöds inte av NS.\nProfil överförs inte till NS.</string>
     <string name="low_mark_comment">Nedre värdet för målområde (endast visning)</string>
     <string name="high_mark_comment">Övre värdet för målområde (endast visning)</string>
@@ -1406,4 +1402,5 @@ Eversense-appen.</string>
     <string name="omnipod_bolus_failed_uncertain">Det går inte att verifiera om bolusen är slutförd. Verifiera att din pod leverarar bolus eller avsluta bolus.</string>
     <string name="omnipod_rl_stats">RL-statistik</string>
     <string name="omnipod_read_pulse_log_short">Pulslogg</string>
+    <string name="nav_profilehelper">Profilguide</string>
 </resources>

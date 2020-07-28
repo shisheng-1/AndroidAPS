@@ -122,7 +122,6 @@
     <!--    Temptarget-->
     <string name="mins">%1$dмин</string>
     <!--    TDD-->
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Бол: <b>%3$.2f</b> Баз: <b>%4$.2f</b>]]></string>
     <!--    Translator-->
     <string name="careportal_bgcheck">Проверка на КЗ</string>
     <string name="careportal_announcement">Известие</string>
@@ -179,4 +178,5 @@
     <string name="tbb2">ОБИ * 2</string>
     <!--    Ntp-->
     <string name="timedetection">Засичане на времето</string>
+    <string name="format_hour_minute">%1$dч:%2$dм</string>
 </resources>

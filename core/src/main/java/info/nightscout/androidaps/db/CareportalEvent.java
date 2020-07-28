@@ -87,6 +87,7 @@ public class CareportalEvent implements DataPointWithLabelInterface, Interval {
     }
 
     public CareportalEvent(NSMbg mbg) {
+        this();
         date = mbg.date;
         eventType = MBG;
         json = mbg.json;

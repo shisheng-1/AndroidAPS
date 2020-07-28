@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.common.base.Joiner
+import info.nightscout.androidaps.Config
 import info.nightscout.androidaps.Constants
 import info.nightscout.androidaps.R
 import info.nightscout.androidaps.activities.ErrorHelperActivity
@@ -51,6 +52,7 @@ class InsulinDialog : DialogFragmentWithDate() {
     @Inject lateinit var activePlugin: ActivePluginProvider
     @Inject lateinit var ctx: Context
     @Inject lateinit var repository: AppRepository
+    @Inject lateinit var config: Config
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -96,6 +98,10 @@ class InsulinDialog : DialogFragmentWithDate() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (config.NSCLIENT) {
+            overview_insulin_record_only.isChecked = true
+            overview_insulin_record_only.isEnabled = false
+        }
         val maxInsulin = constraintChecker.getMaxBolusAllowed().value()
 
         overview_insulin_time.setParams(savedInstanceState?.getDouble("overview_insulin_time")

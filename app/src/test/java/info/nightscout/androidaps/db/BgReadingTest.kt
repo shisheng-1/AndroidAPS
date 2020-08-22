@@ -52,6 +52,7 @@ class BgReadingTest : TestBase() {
         Assert.assertEquals(1.0, bgReading.valueToUnits(Constants.MMOL) * 1, 0.01)
     }
 
+
     @Test fun calculateDirection() {
         val bgReading = BgReading(injector)
         val bgReadingsList: MutableList<GlucoseValue> = mutableListOf()

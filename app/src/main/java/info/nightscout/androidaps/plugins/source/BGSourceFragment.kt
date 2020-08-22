@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,7 @@ import info.nightscout.androidaps.utils.DateUtil
 import info.nightscout.androidaps.utils.FabricPrivacy
 import info.nightscout.androidaps.utils.T
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog
+import info.nightscout.androidaps.utils.extensions.directionToIcon
 import info.nightscout.androidaps.utils.extensions.toVisibility
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.rx.AapsSchedulers
@@ -94,7 +96,7 @@ class BGSourceFragment : DaggerFragment() {
             holder.invalid.visibility = (!glucoseValue.isValid).toVisibility()
             holder.date.text = dateUtil.dateAndTimeString(glucoseValue.timestamp)
             holder.value.text = glucoseValue.valueToUnitsString(profileFunction.getUnits())
-            holder.direction.text = glucoseValue.trendArrow.symbol
+            holder.direction.setImageResource(glucoseValue.trendArrow.directionToIcon())
             holder.remove.tag = glucoseValue
         }
 
@@ -103,7 +105,7 @@ class BGSourceFragment : DaggerFragment() {
         inner class GlucoseValuesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var date: TextView = itemView.findViewById(R.id.bgsource_date)
             var value: TextView = itemView.findViewById(R.id.bgsource_value)
-            var direction: TextView = itemView.findViewById(R.id.bgsource_direction)
+            var direction: ImageView = itemView.findViewById(R.id.bgsource_direction)
             var invalid: TextView = itemView.findViewById(R.id.invalid_sign)
             var ns: TextView = itemView.findViewById(R.id.ns_sign)
             var remove: TextView = itemView.findViewById(R.id.bgsource_remove)

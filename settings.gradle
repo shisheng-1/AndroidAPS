@@ -1,2 +1,2 @@
-include ':app', ':wear', ':core', ':dana', ':danar', ':danars'
 include ':database'
+include ':app', ':wear', ':core', ':dana', ':danar', ':danars', ':rileylink', ':medtronic'

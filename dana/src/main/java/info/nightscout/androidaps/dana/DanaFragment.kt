@@ -28,6 +28,7 @@ import info.nightscout.androidaps.utils.T
 import io.reactivex.rxkotlin.plusAssign
 import info.nightscout.androidaps.utils.WarnColors
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog
+import info.nightscout.androidaps.utils.extensions.toVisibility
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import info.nightscout.androidaps.utils.sharedPreferences.SP
@@ -36,6 +37,7 @@ import kotlinx.android.synthetic.main.danar_fragment.*
 import javax.inject.Inject
 
 class DanaFragment : DaggerFragment() {
+
     @Inject lateinit var rxBus: RxBusWrapper
     @Inject lateinit var aapsLogger: AAPSLogger
     @Inject lateinit var fabricPrivacy: FabricPrivacy
@@ -97,6 +99,7 @@ class DanaFragment : DaggerFragment() {
             danar_btconnection.setOnLongClickListener {
                 activity?.let {
                     OKDialog.showConfirmation(it, resourceHelper.gs(R.string.resetpairing), Runnable {
+                        aapsLogger.error("USER ENTRY: Clearing pairing keys !!!")
                         (activePlugin.activePump as DanaPumpInterface).clearPairing()
                     })
                 }
@@ -214,9 +217,6 @@ class DanaFragment : DaggerFragment() {
         }
         //hide user options button if not an RS pump or old firmware
         // also excludes pump with model 03 because of untested error
-        val isKorean = activePlugin.activePump.pumpDescription.pumpType == PumpType.DanaRKorean
-        if (isKorean || pump.hwModel == 0 || pump.hwModel == 3) {
-            danar_user_options?.visibility = View.GONE
-        }
+        danar_user_options?.visibility = (pump.hwModel != 1 && pump.protocol != 0x00).toVisibility()
     }
 }

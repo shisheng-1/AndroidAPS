@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pairing">Сопряжение</string>
+    <!--    Keys-->
     <!--    General-->
     <string name="error">Ошибка</string>
     <string name="not_set_short">Не выбрано</string>
@@ -65,6 +65,7 @@
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">Дежурный режим Watchdog</string>
     <string name="btwatchdog_summary">Выключает bluetooth телефона на одну секунду, если подключение к помпе невозможно. Это помогает на тех телефонах, где зависает модуль bluetooth.</string>
+    <string name="pairing">Сопряжение</string>
     <!--    Constraints-->
     <string name="limitingbasalratio">Макс базальный уровень ограничен до %1$.2f ед/ч вследствие %2$s</string>
     <string name="pumplimit">лимит помпы</string>
@@ -101,6 +102,9 @@
     <string name="unit_weeks">нед</string>
     <string name="shortminute">мин</string>
     <string name="shortday">дн</string>
+    <!--    Protection-->
+    <string name="wrongpassword">Неверный пароль</string>
+    <string name="passwords_dont_match">Пароли не совпадают</string>
     <!--    Profile-->
     <string name="basalprofilenotaligned">Базальные значения не выровнены по часам: %1$s</string>
     <string name="minimalbasalvaluereplaced">Значение базала заменено минимальной поддерживаемой величиной: %1$s</string>
@@ -128,7 +132,8 @@
     <string name="tddwithcarbsformat"><![CDATA[<b>%1$s</b>∑: <b>%2$.2fед</b> Бол: <b>%3$.2fед</b> Баз: <b>%4$.2fед(%5$.0f%%)</b> Угл: <b>%6$.0fг</b>]]></string>
     <!--    Translator-->
     <string name="careportal_bgcheck">Проверка ГК</string>
-    <string name="careportal_announcement">Оовещение</string>
+    <string name="careportal_mbg">Ввести значение ГК или калибровку</string>
+    <string name="careportal_announcement">Оповещение</string>
     <string name="careportal_note">Примечание</string>
     <string name="careportal_question">Вопрос</string>
     <string name="careportal_exercise">Нгрузка</string>

@@ -80,7 +80,7 @@ class TreatmentsBolusFragment : DaggerFragment() {
                 })
             }
         }
-        val nsUploadOnly = sp.getBoolean(R.string.key_ns_upload_only, false)
+        val nsUploadOnly = sp.getBoolean(R.string.key_ns_upload_only, true)
         if (nsUploadOnly) treatments_reshreshfromnightscout.visibility = View.GONE
     }
 

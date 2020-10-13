@@ -5,6 +5,7 @@ import androidx.room.Query
 import info.nightscout.androidaps.database.TABLE_TEMPORARY_TARGETS
 import info.nightscout.androidaps.database.entities.TemporaryTarget
 import io.reactivex.Maybe
+import io.reactivex.Observable
 import io.reactivex.Single
 
 @Suppress("FunctionName")
@@ -25,6 +26,9 @@ internal interface TemporaryTargetDao : TraceableDao<TemporaryTarget> {
 
     @Query("SELECT * FROM $TABLE_TEMPORARY_TARGETS WHERE timestamp >= :timestamp AND isValid = 1 AND referenceId IS NULL ORDER BY timestamp ASC")
     fun compatGetTemporaryTargetDataFromTime(timestamp: Long): Single<List<TemporaryTarget>>
+
+    @Query("SELECT * FROM $TABLE_TEMPORARY_TARGETS WHERE isValid = 1 AND referenceId IS NULL ORDER BY timestamp ASC")
+    fun compatGetTemporaryTargetData(): List<TemporaryTarget>
 
     @Query("SELECT * FROM $TABLE_TEMPORARY_TARGETS WHERE referenceId = :id ORDER BY id DESC LIMIT 1")
     fun getLastHistoryRecord(id: Long): TemporaryTarget?

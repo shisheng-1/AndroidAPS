@@ -19,6 +19,7 @@ import java.nio.charset.StandardCharsets;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 
+import info.nightscout.androidaps.plugins.general.openhumans.OpenHumansUploader;
 import dagger.android.HasAndroidInjector;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.R;
@@ -51,6 +52,7 @@ public class DetermineBasalAdapterSMBJS {
     @Inject ProfileFunction profileFunction;
     @Inject TreatmentsPlugin treatmentsPlugin;
     @Inject ActivePluginProvider activePluginProvider;
+    @Inject OpenHumansUploader openHumansUploader;
 
 
     private ScriptReader mScriptReader;
@@ -160,7 +162,9 @@ public class DetermineBasalAdapterSMBJS {
                 String result = NativeJSON.stringify(rhino, scope, jsResult, null, null).toString();
                 aapsLogger.debug(LTag.APS, "Result: " + result);
                 try {
-                    determineBasalResultSMB = new DetermineBasalResultSMB(injector, new JSONObject(result));
+                    JSONObject resultJson = new JSONObject(result);
+                    openHumansUploader.enqueueSMBData(mProfile, mGlucoseStatus, mIobData, mMealData, mCurrentTemp, mAutosensData, mMicrobolusAllowed, mSMBAlwaysAllowed, resultJson);
+                    determineBasalResultSMB = new DetermineBasalResultSMB(injector, resultJson);
                 } catch (JSONException e) {
                     aapsLogger.error(LTag.APS, "Unhandled exception", e);
                 }
@@ -278,7 +282,7 @@ public class DetermineBasalAdapterSMBJS {
         mProfile.put("A52_risk_enable", SMBDefaults.A52_risk_enable);
 
         boolean smbEnabled = sp.getBoolean(resourceHelper.gs(R.string.key_use_smb), false);
-        mProfile.put("SMBInterval", sp.getInt("key_smbinterval", SMBDefaults.SMBInterval));
+        mProfile.put("SMBInterval", sp.getInt(R.string.key_smbinterval, SMBDefaults.SMBInterval));
         mProfile.put("enableSMB_with_COB", smbEnabled && sp.getBoolean(R.string.key_enableSMB_with_COB, false));
         mProfile.put("enableSMB_with_temptarget", smbEnabled && sp.getBoolean(R.string.key_enableSMB_with_temptarget, false));
         mProfile.put("allowSMB_with_high_temptarget", smbEnabled && sp.getBoolean(R.string.key_allowSMB_with_high_temptarget, false));

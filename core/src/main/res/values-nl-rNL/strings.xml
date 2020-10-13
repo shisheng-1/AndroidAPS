@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pairing">Koppelen</string>
+    <!--    Keys-->
     <!--    General-->
     <string name="error">Fout</string>
     <string name="not_set_short">Niet ingesteld</string>
@@ -58,6 +58,7 @@
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
     <string name="btwatchdog_summary">Zet de bluetooth van de telefoon even kort uit en weer aan. Dit kan op sommige gsm\'s een vastgelopen bluetooth service verhelpen.</string>
+    <string name="pairing">Koppelen</string>
     <!--    Constraints-->
     <string name="limitingbasalratio">Beperken van basaal tot max %1$.2f E/uur wegens de %2$s</string>
     <string name="pumplimit">Pomp limiet</string>
@@ -92,6 +93,7 @@
     <string name="unit_weeks">weken</string>
     <string name="shortminute">m</string>
     <string name="shortday">d</string>
+    <!--    Protection-->
     <!--    Profile-->
     <string name="basalprofilenotaligned">Basaalstanden niet ingesteld in hele uren: %1$s</string>
     <string name="minimalbasalvaluereplaced">Basale waarde vervangen door minimaal ondersteunde waarde; %1$s</string>

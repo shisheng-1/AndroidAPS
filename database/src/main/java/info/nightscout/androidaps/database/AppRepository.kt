@@ -87,6 +87,9 @@ class AppRepository @Inject internal constructor(
             .subscribeOn(Schedulers.io())
 
     // TEMP TARGETS
+    fun compatGetTemporaryTargetData() =
+        database.temporaryTargetDao.compatGetTemporaryTargetData()
+
     fun compatGetTemporaryTargetDataFromTime(timestamp: Long, ascending: Boolean) =
         database.temporaryTargetDao.compatGetTemporaryTargetDataFromTime(timestamp)
             .map { if (!ascending) it.reversed() else it }
